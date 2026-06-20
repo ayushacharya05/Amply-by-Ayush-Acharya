@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amply by Ayush Acharya - Audio Booster Extension</title>
+   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/ayushacharya05/Amply-by-Ayush-Acharya/refs/heads/main/icons/icon128.png">
+  
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --primary-hover: #e84118;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-color: #2f3640;
+            --text-muted: #718093;
+            --brave-color: #ff5000;
+            --chrome-color: #4285f4;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .badge {
+            background-color: #ffeaa7;
+            color: #d63031;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .ext-icon {
+            width: 96px;
+            height: 96px;
+            object-fit: contain;
+            margin: 0 auto 20px auto;
+            display: block;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 5px 0;
+            color: var(--text-color);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .feature-item {
+            background: #f1f2f6;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .compatibility {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .compatibility span {
+            font-weight: 600;
+        }
+        
+        .chrome-text { color: var(--chrome-color); }
+        .brave-text { color: var(--brave-color); }
+
+        .instructions-box {
+            text-align: left;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .instructions-box h3 {
+            margin-top: 0;
+            color: var(--text-color);
+        }
+
+        .instructions-box ol {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .instructions-box li {
+            margin-bottom: 10px;
+            color: #4b5563;
+        }
+        
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        
+        <img class="ext-icon" src="https://raw.githubusercontent.com/ayushacharya05/Amply-by-Ayush-Acharya/refs/heads/main/icons/icon128.png" alt="Amply Icon">
+        
+        <h1>Amply</h1>
+        <div class="tagline">by Ayush Acharya</div>
+        
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">
+            A clean, powerful, and beautiful Chromium browser extension designed to safely boost your browser audio up to 600%.
+        </p>
+
+        <div class="features">
+            <span class="feature-item">🔊 Up to 600% Boost</span>
+            <span class="feature-item">✨ Clean Interface</span>
+            <span class="feature-item">⚡ Lightweight</span>
+        </div>
+
+        <a href="https://github.com/ayushacharya05/Amply-by-Ayush-Acharya/archive/refs/heads/main.zip" class="btn">
+            Download Extension (.zip)
+        </a>
+
+        <div class="compatibility">
+            Optimized for <span class="chrome-text">Google Chrome</span> & <span class="brave-text">Brave Browser</span>
+        </div>
+
+        <div class="instructions-box">
+            <h3>How to Install:</h3>
+            <ol>
+                <li>Click the <strong>Download Extension</strong> button above to download the <code>.zip</code> archive.</li>
+                <li>Extract the contents of the downloaded <code>.zip</code> file into a folder on your computer.</li>
+                <li>Open your browser and navigate to the Extensions page:
+                    <ul>
+                        <li>For <strong>Chrome</strong>: Go to <code>chrome://extensions/</code></li>
+                        <li>For <strong>Brave</strong>: Go to <code>brave://extensions/</code></li>
+                    </ul>
+                </li>
+                <li>Enable <strong>Developer mode</strong> using the toggle switch (usually found in the top-right corner).</li>
+                <li>Click on the <strong>Load unpacked</strong> button (top-left corner).</li>
+                <li>Select the folder where you extracted the extension files.</li>
+            </ol>
+        </div>
+
+    
+    </div>
+</div>
+
+</body>
+</html>
