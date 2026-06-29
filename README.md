@@ -1,6 +1,6 @@
 # Amply-by-Ayush-Acharya
 Chrome Extension to boost your browser audio up to 600%. Clean, powerful, and beautiful
-
+Optimized for Google Chrome & Brave Browser
 
 How to Install:
 Click the Download Extension button above to download the .zip archive.
