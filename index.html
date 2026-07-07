@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amply - Ultimate Audio Booster Extension</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --accent-primary: #4f46e5;
+            --accent-hover: #4338ca;
+            --accent-light: #eef2ff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            padding: 15px;
+        }
+
+        /* --- 1.2x (120%) ZOOM SCALING APPLIED HERE --- */
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transform: scale(1.2);
+            transform-origin: center center;
+        }
+
+        /* Compact Dashboard Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px 28px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
+            align-items: center;
+        }
+
+        /* --- LEFT SIDE: IDENTITY & DOWNLOAD --- */
+        .download-side {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-wrapper:hover .logo {
+            transform: scale(1.05);
+        }
+
+        .logo-bg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, rgba(255,255,255,0) 70%);
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+
+        h1 span {
+            color: var(--accent-primary);
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-weight: 500;
+            max-width: 420px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--accent-primary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+            transition: all 0.2s ease;
+            width: 100%;
+            max-width: 360px;
+            margin-bottom: 16px;
+        }
+
+        .btn-download:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Compact Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: #334155;
+        }
+
+        /* --- RIGHT SIDE: COMPACT STEPS --- */
+        .installation-side {
+            text-align: left;
+            border-left: 1px solid var(--border-color);
+            padding-left: 24px;
+        }
+
+        .installation-side h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .step-card {
+            display: flex;
+            gap: 10px;
+            background: #fafafa;
+            border: 1px solid #f1f5f9;
+            padding: 8px 12px;
+            border-radius: 10px;
+            align-items: center;
+        }
+
+        .step-number {
+            background: var(--accent-light);
+            color: var(--accent-primary);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-content strong {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .step-content p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        .code-snippet {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #1e293b;
+            padding: 0px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .footer-credit {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            body { overflow-y: auto; height: auto; padding: 20px 10px; }
+            .container { transform: scale(1); } /* Reset zoom scale on small screens to prevent clipping */
+            .main-layout { grid-template-columns: 1fr; padding: 20px; gap: 20px;}
+            .installation-side { border-left: none; padding-left: 0; border-top: 1px solid var(--border-color); padding-top: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="main-layout">
+            
+            <!-- LEFT COLUMN: Profile & Actions -->
+            <div class="download-side">
+                <div class="logo-wrapper">
+                    <div class="logo-bg-glow"></div>
+                    <img class="logo" src="https://raw.githubusercontent.com/ayushacharya05/Amply-by-Ayush-Acharya/refs/heads/main/icons/icon128.png" alt="Amply Extension Icon">
+                </div>
+                
+                <h1>Amply <span>Audio Booster</span></h1>
+                <p class="tagline">A clean, powerful browser extension engineered to safely boost your browser volume up to 600%.</p>
+                
+                <!-- Call To Action -->
+                <a href="https://codeload.github.com/ayushacharya05/Amply-by-Ayush-Acharya/zip/refs/heads/main" class="btn-download" download>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download Extension Zip
+                </a>
+
+                <!-- 2x2 Features Grid -->
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">🔊</span>
+                        <span>600% Safe Boost</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🛡️</span>
+                        <span>Zero Distortion</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span>Chrome & Edge Ready</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🦁</span>
+                        <span>Brave Optimized</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Compact Guide Steps -->
+            <div class="installation-side">
+                <h2>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    Quick Setup Guide
+                </h2>
+                
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <strong>Download & Extract</strong>
+                            <p>Unzip the folder onto your local directory.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <strong>Open Extensions Page</strong>
+                            <p>Go to <span class="code-snippet">chrome://extensions</span> or <span class="code-snippet">brave://extensions</span>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <strong>Developer Mode</strong>
+                            <p>Toggle the <strong>Developer mode</strong> option in the top right to <strong>ON</strong>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <strong>Load Unpacked</strong>
+                            <p>Click <strong>"Load unpacked"</strong> and pick your extracted folder.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <p class="footer-credit">Crafted by Ayush Acharya</p>
+    </div>
+
+</body>
+</html>
